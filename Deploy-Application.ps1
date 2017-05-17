@@ -56,15 +56,15 @@ Try {
 	##* VARIABLE DECLARATION
 	##*===============================================
 	## Variables: Application
-	[string]$appVendor = ''
-	[string]$appName = ''
-	[string]$appVersion = ''
+	[string]$appVendor = 'MSU Denver'
+	[string]$appName = 'ITS Faculty Lab Homepage'
+	[string]$appVersion = '1.0.0'
 	[string]$appArch = ''
 	[string]$appLang = 'EN'
 	[string]$appRevision = '01'
 	[string]$appScriptVersion = '1.0.0'
 	[string]$appScriptDate = '02/12/2017'
-	[string]$appScriptAuthor = '<author name>'
+	[string]$appScriptAuthor = 'Jordan Hamilton'
 	##*===============================================
 	## Variables: Install Titles (Only set here to override defaults set by the toolkit)
 	[string]$installName = ''
@@ -118,6 +118,7 @@ Try {
 		Show-InstallationProgress
 
 		## <Perform Pre-Installation tasks here>
+		## Define per-user homepage setting for Internet Explorer
 		[scriptblock]$HKCUFacultyLabRegistrySettings = {
 			Write-Log -Message "Setting Internet Explorer homepage..." -Severity 1 -Source $deployAppScriptFriendlyName
 			Set-RegistryKey -Key "HKCU\SOFTWARE\Microsoft\Internet Explorer\Main" -Name "Start Page" -Value "http://msudenver.edu/etc/checkinform/" -Type "String" -SID $UserProfile.SID
@@ -209,8 +210,8 @@ Catch {
 # SIG # Begin signature block
 # MIIU4wYJKoZIhvcNAQcCoIIU1DCCFNACAQExDzANBglghkgBZQMEAgEFADB5Bgor
 # BgEEAYI3AgEEoGswaTA0BgorBgEEAYI3AgEeMCYCAwEAAAQQH8w7YFlLCE63JNLG
-# KX7zUQIBAAIBAAIBAAIBAAIBADAxMA0GCWCGSAFlAwQCAQUABCBOaXwxnPc6du1Q
-# O0xLKHsQ27B2y+8hrjxAFqBpT1HctaCCD4cwggQUMIIC/KADAgECAgsEAAAAAAEv
+# KX7zUQIBAAIBAAIBAAIBAAIBADAxMA0GCWCGSAFlAwQCAQUABCAMMBRELeAFmVW+
+# 95kaEOQr7XvfYvAS5H0gpQL13iWsaqCCD4cwggQUMIIC/KADAgECAgsEAAAAAAEv
 # TuFS1zANBgkqhkiG9w0BAQUFADBXMQswCQYDVQQGEwJCRTEZMBcGA1UEChMQR2xv
 # YmFsU2lnbiBudi1zYTEQMA4GA1UECxMHUm9vdCBDQTEbMBkGA1UEAxMSR2xvYmFs
 # U2lnbiBSb290IENBMB4XDTExMDQxMzEwMDAwMFoXDTI4MDEyODEyMDAwMFowUjEL
@@ -297,26 +298,26 @@ Catch {
 # FgNlZHUxGTAXBgoJkiaJk/IsZAEZFgltc3VkZW52ZXIxFTATBgoJkiaJk/IsZAEZ
 # FgV3aW5hZDEZMBcGA1UEAxMQd2luYWQtVk1XQ0EwMS1DQQITfwAAACITuo77mvOv
 # 9AABAAAAIjANBglghkgBZQMEAgEFAKBmMBgGCisGAQQBgjcCAQwxCjAIoAKAAKEC
-# gAAwGQYJKoZIhvcNAQkDMQwGCisGAQQBgjcCAQQwLwYJKoZIhvcNAQkEMSIEIJA4
-# gslZpBLejPPLuwauCQH44r6HOkhoMuqiLOAXd5oCMA0GCSqGSIb3DQEBAQUABIIB
-# AFJ9CkfP6WIxXEsIgflUN7pFh3ZOndudJJ1D3HsikUlIu1kp0sXlX1siRoX5A56i
-# e2nlsotRBI2ZsliKIyS3+ckNBuOBwL7Y7Yis66XUtgtGjx2c4/vvfht14Hr5Cz2v
-# iXzhuvTh7dSZQ0Wps33VDLuiBQ2bavtAgmzMJfnCLiWfQrLqvrVcopsYfvOzhNhy
-# tq9UcmWEHLiBjB1cIMMzoEFJpYfIqhKXkkSLHUYJjLvAscpPbP8yjKLTJfUSNHjs
-# zoYlXntjiFi1OtEzcxkeBuHvtPIVbfn5b8BVVokJT29/L9xiZRJ4jeslOCplvmck
-# 9sYpRQwD44es6vIycNY6Gf2hggKiMIICngYJKoZIhvcNAQkGMYICjzCCAosCAQEw
+# gAAwGQYJKoZIhvcNAQkDMQwGCisGAQQBgjcCAQQwLwYJKoZIhvcNAQkEMSIEIN13
+# AQnDu+1pDwgS0rk+2PriRqNZeBSPehESBrn66fS0MA0GCSqGSIb3DQEBAQUABIIB
+# AFxi1h5csaq4NwaaduvBtSF/aKEnY4YyScVLEGl2DTyVuzTJjNM2vnRFrGn3QfnA
+# uhBbzxn2N/m7Y866IE/yqaB5eqiie6r+VErJ4k6fZLU2eXbWMO6jYYvZt+w/Dh3S
+# nqWLBjNKluDYqjiKobeupJUkJjIgjmFKncMAKF86H2c7Z+j1sV6rSmb3ix7tOIiY
+# 360AcnKoB4ZiI0ma/dkHb+ZAkl+U7rh3Elakx9NOcENdqMzVFJaHexLOd31fPJ5w
+# 6/oj/HNA/JOto2nlwhLE2FjAU6DIWVXEmM7v9N5dAPDPfBPqCalyzMdYKhJ+2Kk/
+# 4xKBcnQeuMTL2vYPEe41+5ihggKiMIICngYJKoZIhvcNAQkGMYICjzCCAosCAQEw
 # aDBSMQswCQYDVQQGEwJCRTEZMBcGA1UEChMQR2xvYmFsU2lnbiBudi1zYTEoMCYG
 # A1UEAxMfR2xvYmFsU2lnbiBUaW1lc3RhbXBpbmcgQ0EgLSBHMgISESHWmadklz7x
 # +EJ+6RnMU0EUMAkGBSsOAwIaBQCggf0wGAYJKoZIhvcNAQkDMQsGCSqGSIb3DQEH
-# ATAcBgkqhkiG9w0BCQUxDxcNMTcwNTE3MTczNDQ0WjAjBgkqhkiG9w0BCQQxFgQU
-# mLLgawadbD0Vmap3TDuYiN36ZA4wgZ0GCyqGSIb3DQEJEAIMMYGNMIGKMIGHMIGE
+# ATAcBgkqhkiG9w0BCQUxDxcNMTcwNTE3MTc0NjQ0WjAjBgkqhkiG9w0BCQQxFgQU
+# lbw9R5a2pajw/nSoWTzzNJLUKiAwgZ0GCyqGSIb3DQEJEAIMMYGNMIGKMIGHMIGE
 # BBRjuC+rYfWDkJaVBQsAJJxQKTPseTBsMFakVDBSMQswCQYDVQQGEwJCRTEZMBcG
 # A1UEChMQR2xvYmFsU2lnbiBudi1zYTEoMCYGA1UEAxMfR2xvYmFsU2lnbiBUaW1l
 # c3RhbXBpbmcgQ0EgLSBHMgISESHWmadklz7x+EJ+6RnMU0EUMA0GCSqGSIb3DQEB
-# AQUABIIBAGgyAw2cCbA8LsGnKWyYIj7ex3FDgOIEoy12dDLUIIacVtd2e6YC7Ysv
-# Ho1U6eskySnRsvbF1ehnJFOwL72kVcU+1CPEGyGRnfE3ZA8VMqBkFNVx2E8oAw+/
-# kIe++QXLl+WIG7YhPjqvlu1dj0vhwjUv9nFqlfouC6fkFJHzxaILGYt1/b4ocimv
-# 55jxFB6taLdjwTNtvh907bAbe6Q3zQbUVkMHiVatUWS6bvUTdcQcvyQTlCQES9K3
-# R3xX6nevbFfXUFTt1ZqUXid8Zv7VZnIOP7KrgiwjmQuphk9tkUs6hGiOdo0TsodY
-# edhKsQcMK/0Yq9fSEMFfLh/j9iSn5NI=
+# AQUABIIBAJRPuqfGvhaJidAjEu5i3n/vsCmMf29sRnDPAfP2spIvY7JlxQ4uOpv1
+# QYdzf2K9Z1jp+2iuKJ04lV4TbG16sgKpFKnIlG82bnGC33TN6nY4J+OKBk83Lva3
+# R1A637iFSOpR04yBEaMJq1gnJw4AxiMbJ78xyGPsEoKWh/0GkmJ3HZIgOosF6Ume
+# RZyeH914iBq9iG7In8/0+9+TxPu1Pj/7i2FyWHmRJruVzuPvYxO6KAqxm3MvMPur
+# qv+UOHCDXvbVq/sPFZnFkhV4V/Vi5sCI1jKplD/EqYgyGY9hhRgFfIJZEmFHwQUm
+# JxOr3gQvmwtpYvn4jOjZGVDoCuLDlrg=
 # SIG # End signature block
