@@ -122,6 +122,7 @@ Try {
 		[scriptblock]$HKCUFacultyLabRegistrySettings = {
 			Write-Log -Message "Setting Internet Explorer homepage..." -Severity 1 -Source $deployAppScriptFriendlyName
 			Set-RegistryKey -Key "HKCU\SOFTWARE\Microsoft\Internet Explorer\Main" -Name "Start Page" -Value "http://msudenver.edu/etc/checkinform/" -Type "String" -SID $UserProfile.SID
+			Set-RegistryKey -Key "HKCU\SOFTWARE\Microsoft\Windows\CurrrentVersion\Internet Settings\5.0" -Name "SyncMode5" -Value "3" -Type "DWord" -SID $UserProfile.SID
 		}
 
 		##*===============================================
